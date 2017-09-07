@@ -179,16 +179,21 @@ If you want to learn more about the philosophy, history and usage of the main to
 
 	svn co https://github.com/iLCSoft/ILDConfig/tags/v01-19-02
 
+	
 
 # First Steps
+
 
 
 ## running the complete software chain (for ILD)
 
 - the quickest introduction to running iLCSoft can always be found in the *ILDConfig* package:
-
-		cd ./StandardConfig/lcgeo_current/ 
+		cd ./StandardConfig/lcgeo_current/
 		less README.md 
+		
+	at DESY you can find this in
+		cd /afs/desy.de/project/ilcsoft/sw/ILDConfig
+	choose v01-19-04
 		
 - or view online (nicely fomatted due to *markdown*) at:
 	- [https://github.com/iLCSoft/ILDConfig/tree/master/StandardConfig/lcgeo_current](https://github.com/iLCSoft/ILDConfig/tree/master/StandardConfig/lcgeo_current)
@@ -212,7 +217,7 @@ If you want to learn more about the philosophy, history and usage of the main to
 
 - a given iLCSoft release is initialized simply via running the *init script*:
 
-		. /afs/desy.de/project/ilcsoft/sw/x86_64_gcc49_sl6/v01-19-01/init_ilcsoft.sh
+		. /afs/desy.de/project/ilcsoft/sw/x86_64_gcc49_sl6/v01-19-04/init_ilcsoft.sh
 		
 - now you can call all iLCSoft binaries (*from this release !*) directly on the command line, e.g.
 	
@@ -237,12 +242,12 @@ If you want to learn more about the philosophy, history and usage of the main to
 - run a simulation from an *stdhep* generator file:
 
 		ddsim --inputFiles ./bbudsc_3evt.stdhep --outputFile=./bbudsc_3evt.slcio \
-			--compactFile $lcgeo_DIR/ILD/compact/ILD_l1_v01/ILD_l1_v01.xml \
+			--compactFile $lcgeo_DIR/ILD/compact/ILD_l4_v02/ILD_l4_v02.xml \
 			--steeringFile=./ddsim_steer.py  > ddsim.out 2>&1 &
 
 - while this is running, take the time and investigate the main configuration files used here:
 	- *ddsim_steer.py* steering the simulation
-	- *ILD_l1_v01.xml* the detctor geometry model
+	- *ILD_l4_v02.xml* the detctor geometry model
 		
 ### Exercise 1
 - modify *ddsim_steer.py* in order to run a simulation using a *particle gun* instead
@@ -309,8 +314,8 @@ for evt in rdr:
 
 \small
 
-	convertToGear default $lcgeo_DIR/ILD/compact/ILD_l1_v01/ILD_l1_v01.xml \
-	gear_ILD_l1_v01_dd4hep.xml
+	convertToGear default $lcgeo_DIR/ILD/compact/ILD_l4_v02/ILD_l4_v02.xml \
+	gear_ILD_l4_v02_dd4hep.xml
 
 
 
@@ -321,8 +326,8 @@ for evt in rdr:
 - we can now reconstruct the simulated file:
 
 		Marlin bbudsc_3evt_stdreco_dd4hep.xml \
-		 --global.GearXMLFile=gear_ILD_l1_v01_dd4hep.xml \
-		 --InitDD4hep.DD4hepXMLFile=$lcgeo_DIR/ILD/compact/ILD_l1_v01/ILD_l1_v01.xml \
+		 --global.GearXMLFile=gear_ILD_l4_v02_dd4hep.xml \
+		 --InitDD4hep.DD4hepXMLFile=$lcgeo_DIR/ILD/compact/ILD_l4_v02/ILD_l4_v02.xml \
 	     > marlin.out 2>&1 &
 
 - while this is running, let's have a look at the Marlin steering file ```bbudsc_3evt_stdreco_dd4hep.xml```
@@ -378,7 +383,7 @@ for evt in rdr:
 
 - parameters can be overwritten on the command line, e.g.
 
-		Marlin --global.GearXMLFile=gear_ILD_l1_v01_dd4hep.xml 
+		Marlin --global.GearXMLFile=gear_ILD_l4_v02_dd4hep.xml 
 		
 
 ## Marlin steering files  - processor
@@ -423,12 +428,12 @@ for evt in rdr:
 
 	- or we can start both, glced and Marlin in one go:
 
-			ced2go  -d gear_ILD_l1_v01_dd4hep.xml  bbudsc_3evt_REC.slcio
+			ced2go  -d gear_ILD_l4_v02_dd4hep.xml  bbudsc_3evt_REC.slcio
 
 	- we can also start CED with DD4hep geometry
 		- displays also the tracking surfaces (slow): 
 	
-				ced2go -s 1 -d $lcgeo_DIR/ILD/compact/ILD_l1_v01/ILD_l1_v01.xml \
+				ced2go -s 1 -d $lcgeo_DIR/ILD/compact/ILD_l4_v02/ILD_l4_v02.xml \
 				 bbudsc_3evt_REC.slcio
 
 
@@ -468,7 +473,7 @@ for evt in rdr:
 
 - create a ROOT TTree for analysis
 
-		Marlin lctuple.xml --global.GearXMLFile=gear_ILD_l1_v01_dd4hep.xml
+		Marlin lctuple.xml --global.GearXMLFile=gear_ILD_l4_v02_dd4hep.xml
 
 	- creates: bbudsc_3evt_REC_lctuple.root 
 	  which you can analyze with ROOT in the *usual way*
