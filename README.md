@@ -53,7 +53,6 @@ for a short version, see below:
 The DST files used for ILD are described [here](./dst/ild_dst_collections.md).
 
 
- ... hello world ...
 
 	
 	
