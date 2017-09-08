@@ -27,25 +27,46 @@ to familiarize yourself with the basic software and analysis tools.
 for a short version, see below:
 
 ### how to download, change and upload files/repositories (ILDDoc.git in this example)
-
-	git clone https://github.com/ILDAnaSoft/ILDDoc.git   			clone ILDDoc.git
+	
+	####clone ILDDoc.git
+	git clone https://github.com/ILDAnaSoft/ILDDoc.git   			
 	cd ILDDoc
 	
 	git remote add downstream
-	https://<yourUserName>@github.com/<yourUserName>/ILDDoc.git 	use your github username
+	https://<yourUserName>@github.com/<yourUserName>/ILDDoc.git 	
+	(use your github username)
 	
-	git checkout -b <myNewBranch>									create a new branch; choose a name
+	####create a new branch; choose a name
+	git checkout -b <myNewBranch>									
 	
-		open the file you want to change and execute your changes
-		
-	git diff														you can check the changed version
-	git ci -a 														commit your changes to local repository	
-																	write a commit message in editor window	
-	git push downstream	<myNewBranch>									upload file back to our github account
+	open the file you want to change and execute your changes (e.g.: gedit <filename> &)
 	
+	####check the changed version
+	git diff														
+	
+	####commit your changes to local repository; write a commit message in editor window; close the window
+	git ci -a 														
+																	
+	####upload file back to your github account
+	git push downstream	<myNewBranch>									
+	
+    reload your own github webite (https://github.com/<yourUserName>/ILDDoc)
+    you should see your commit
+    trigger pull request on website 
+
+	####bring downstream master in synch with origin master after pull request has been accepted:
+	
+	git checkout master	
 	git pull origin
-	git push downstream master										push file from your to official website
-	git checkout master
+	git push downstream master										
+
+
+
+
+while doing this you can check your branches with: 	git lola
+	if everything went fine, you shoud be able to see sth like 
+		* b6f0c82 (HEAD, refs/heads/<myNewBranch>) <your commit message> 
+	in the first line after upoading the branch
 
 
 ## ILD DST format
