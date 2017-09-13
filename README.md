@@ -74,9 +74,47 @@ while doing this you can check your branches with: 	git lola
 The DST files used for ILD are described [here](./dst/ild_dst_collections.md).
 
 
+   The most common used is MCParticle and PandoraPFOs. 
+   For MCParticle, the detail information are
+
+   |[id]| index | PDG | px, py, pz | px_ep, py_ep, pz_ep | energy | gen | [simstat] | vertex x, y, z | endpoint x, y, z | mass | charge | spin | colorflow | [parents] - [daughters]|
+   |----|-------|-----|------------|---------------------|--------|-----|-----------|----------------|------------------|------|--------|------|-----------|------------------------|
+   
+   You can use the command like getPDG() to get the information of a MCParticle.
+
+   For PandoraPFOs, the detail information are
+
+   |[id]| com | type | momentum | energy | mass | charge | position ( x,y,z ) | pidUsed | GoodnessOfPID | covariance( px,py,pz,E ) | particles([id]) | tracks ([id]) | clusters ([id]) | particle ids ([id],PDG,(type)) | vertices|
+   |----|-----|------|----------|--------|------|--------|--------------------|---------|---------------|--------------------------|-----------------|---------------|-----------------|--------------------------------|---------|
+
+   The way to call this variables can be found at [here](http://lcio.desy.de/v02-09/doc/doxygen_api/html/namespaces.html), which is all the c++ API for lcio.
+
 
 	
-	
+### How to run Marlin for analysis
+You can learn how to write a Marlin steering file from [here](https://github.com/YancyW/ilcsoftDoc/blob/master/README.md)
+In this section, we will introduce some usually used Marlin processor for physics analysis.
+
+#### how to create a ROOT file out of a LCIO file for the use of LC Tuple
+	e.g. Marlin lctuple.xml --global.GearXMLFile=gear_ILD_l4_v02_dd4hep.xml 
+(change data considering your own simulation)
+
+this creates a file <...>_REC_lctuple.root which can be analyzed.
+For more information about LCTuple, see 
+[here](https://github.com/iLCSoft/LCTuple)
+
+
+
+### How to program for a new Marlin processor for analysis
+First, you should know some general information about how to write a Marlin [processor](https://github.com/YancyW/ilcsoftDoc/blob/master/README.md)
+
+Here, we will show some notes of processor programming for analysis.
+
+
+
+
+
+
 
 
 
