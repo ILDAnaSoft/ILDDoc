@@ -108,14 +108,14 @@ while doing this you can check your branches with: 	git lola
 	
 	
 
-## The events samples in ILC group
-In ILC group, many SM and new physics event samples have already been generated and simulated.
+## The events samples in ILD group
+In ILD group, many SM and new physics event samples have already been generated and simulated.
 The detail information of the SM event samples can be found at 
 http://ilcsoft.desy.de/dbd/generated/
 
 There are two kinds of data file, DST and REC file. The "REC" file contains all infomation for generating, simulation and reconstruction.
 The "DST" file only contain some of them. Usually, the "DST" file is suitable for analysis, but you can also check the "REC" file for more details.
-The sample file name in the ILC group will look like
+The sample file name in the ILD group will look like
 
 `rv01-19-04_lcgeo.sv01-19-04_lcgeo.mILD_l4_v02.E250-TDR_ws.I106479.Pe2e2h.eL.pR.n001_012.d_rec_00008603_6.slcio`
 
