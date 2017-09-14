@@ -21,9 +21,9 @@ if processors in the input and output column are marked like this: (?)<...> it i
 | GammaGammaParticles           | ReconstructedParticle    |   -					 | MyGammaGammaSolutionFinder	| MyDistilledPFOCreator											|														|
 | KinkRecoParticles             | ReconstructedParticle    |   -					 |	-							|	-															|														|
 | KinkVertices                  | Vertex                   |   -					 |	-							| MyDDMarlinPandora											| 														|
-| MCTruthMarlinTrkTracksLink    | LCRelation               |  link Recontructed Particles to MCParticle					 | MyRecoMCTruthLinker			|	-															| 														|
+| MCTruthMarlinTrkTracksLink    | LCRelation               |  link Reconstructed Particles to MCParticle					 | MyRecoMCTruthLinker			|	-															| 														|
 | MarlinTrkTracks               | Track                    |  best track collection  |	MyFullLDCTracking_MarlinTrk	| MyExtrToSIT; MyRecoMCTruthLinker; MyDDMarlinPandora		| MyCompute_dEdxProcessor; MyKinkFinder; MyV0Finder; 	|
-| MarlinTrkTracksMCTruthLink    | LCRelation               |  link Recontructed Particles to MCParticle					 | MyRecoMCTruthLinker			|	-															| 														|
+| MarlinTrkTracksMCTruthLink    | LCRelation               |  link Reconstructed Particles to MCParticle					 | MyRecoMCTruthLinker			|	-															| 														|
 | PandoraClusters               | Cluster                  |   -					 |	-							| (?)MyComputeShowerShapesProcessor; git diffMyAddClusterProperties; MyRecoMCTruthLinker	| MyDDMarlinPandora 									|
 | PandoraPFANewStartVertices    | Vertex                   |   -					 |	-							|	-															|														|
 | PandoraPFOs                   | ReconstructedParticle    |  final PFA objects	     |	-							| VertexFinder;MyComputeShowerShapesProcessor; MyPfoAnalysis; MyAddClusterProperties; MyEtaFinder; MyEtaPrimeFinder; MyRecoMCTruthLinker; MyTauFinder; MyAdd4MomCovMatrixCharged; MyPi0Finder; MyLikelihoodPID| MyPFOID												|
