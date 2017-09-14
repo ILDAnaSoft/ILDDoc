@@ -84,6 +84,7 @@ You can learn how to write a Marlin steering file from [here](https://github.com
 
 In this section, we will introduce some common Marlin processors for physics analysis.
 
+### Processors for reconstruct particles 
 |processor name| explaination |
 |:------------:|:------------:|
 |AIDAProcessor| Creates on directory per processor,Needs to be the first ActiveProcessor |
@@ -132,15 +133,15 @@ In this section, we will introduce some common Marlin processors for physics ana
 |PfoAnalysis|PfoAnalysis analyses output of PandoraPFANew|
 |Add4MomCovMatrixCharged|Set the convariance matrix in (P,E) for all charged pfos in PandoraPFOs Collection|
 |GammaGammaCandidateFinder||
-|:------------:|:------------:|
 
 
-### how to create a ROOT file out of a LCIO file for the use of LC Tuple
-	e.g. 
+### How to create a ROOT file out of a LCIO file for the use of LC Tuple
+iLCSoft provides LCTuple processor to change the slcio file into a root file. This can be done by the command:
 `Marlin lctuple.xml --global.GearXMLFile=gear_ILD_l4_v02_dd4hep.xml `
-(change data considering your own simulation)
 
-this creates a file <...>_REC_lctuple.root which can be analyzed.
+this creates a file <...>_REC_lctuple.root which can be analyzed. The lctuple.xml file can be found in LCTuple/examples/ folder
+
+In the new root file, all the particle information is reserved 
 For more information about LCTuple, see 
 [here](https://github.com/iLCSoft/LCTuple)
 
