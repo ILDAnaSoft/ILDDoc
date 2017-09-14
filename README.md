@@ -10,7 +10,7 @@ Other places to find documentation on iLCSoft:
 	- the Github project that holds most of the software repositories
 	- here you can post questions and issues to the software tools
 
-- [https://github.com/YancyW/ilcsoftDoc/blob/master/README.md](https://github.com/YancyW/ilcsoftDoc/blob/master/README.md)
+- [https://github.com/YancyW/ilcsoftDoc/blob/master/README_Introduction_For_iLCSoft.md](http://github.com/YancyW/ilcsoftDoc/blob/master/README_Introduction_For_iLCSoft.md)
 	- a breif introduction for how to use iLCSoft
 
 	
@@ -117,7 +117,7 @@ There are two kinds of data file, DST and REC file. The "REC" file contains all 
 The "DST" file only contain some of them. Usually, the "DST" file is suitable for analysis, but you can also check the "REC" file for more details.
 The sample file name in the ILC group will look like
 
-rv01-19-04_lcgeo.sv01-19-04_lcgeo.mILD_l4_v02.E250-TDR_ws.I106479.Pe2e2h.eL.pR.n001_012.d_rec_00008603_6.slcio
+`rv01-19-04_lcgeo.sv01-19-04_lcgeo.mILD_l4_v02.E250-TDR_ws.I106479.Pe2e2h.eL.pR.n001_012.d_rec_00008603_6.slcio`
 
 |short name | meaning  | example | explaination |
 |:---------:|:--------:|:-------:|:------------:|
@@ -150,58 +150,10 @@ You can learn how to write a Marlin steering file from [here](https://github.com
 In this section, we will introduce some common Marlin processors for physics analysis.
 
 ### Processors for reconstructed particles 
-|processor name| explaination |
-|:------------:|:------------:|
-|AIDAProcessor| Creates on directory per processor,Needs to be the first ActiveProcessor |
-|LCIOOutputProcessor|output reconstruction information to slcio file|
-|InitDD4hep |InitializeDD4hep reads a compact xml file and initializes the DD4hep::LCDD object|
-|Statusmonitor|prints out information on running Marlin Job|
-|BgOverlay|Opens a second (chain of) lcio file(s) and overlays events|
-|SplitCollectionByLayer|split a hit collection based on the layer number of the hits|
-|DDPlanarDigiProcessor|creates TrackerHits from SimTrackerHits|
-|SpacePointBuilder| combine si-strip measurements into 3D spacepoints |
-|DDSpacePointBuilder| SpacePointBuilder combine si-strip measurements into 3D spacepoints|
-|TPCDigiProcessor|Produces TPC TrackerHit collection from SimTrackerHit collection|
-|ClupatraProcessor|nearest neighbour clustering seeded pattern recognition|
-|SiliconTracking_MarlinTrk|Pattern recognition in silicon trackers|  
-|ForwardTracking|create fwd tracks in parallel|
-|TrackSubsetProcessor|takes tracks from multiple sources and outputs them |
-|CellsAutomatonMV|ForwardTracking reconstructs tracks through the FTDs|
-|FullLDCTracking_MarlinTrk|Performs full tracking in ILD detector|
-|Compute_dEdxProcessor|Energy Loss Error for TPC| 
-|ForwardTracking|reconstructs tracks through the FTDs|
-|TruthTracker|Creates Track Collection from MC Truth. Can handle composite spacepoints as long as they consist of two TrackerHits|
-|V0Finder||
-|KinkFinder||
-|RealisticCaloDigiSilicon||
-|RealisticCaloRecoSilicon||
-|BruteForceEcalGapFiller||
-|RealisticCaloDigiScinPpd||
-|RealisticCaloRecoScinPpd||
-|SimpleFCalDigi|Performs simple digitization of sim calo hits|
-|SimpleMuonDigi|Performs simple digitization of sim calo hits|
-|DDPandoraPFANewProcessor||
-|BeamCalClusterReco|akes a list of beamcal background files from the ReadBeamCalprocessor, adds NumberOfBX of them together and puts the signal hits from thelcio nput file on top of that, and then clustering is attempted|
-|BCalReco|Filling Histograms with deposited energy from beamstrahlung pairs in BeamCal|
-|PFOID|Performs particle identification|
-|Add4MomCovMatrixCharged||
-|AddClusterProperties||
-|ComputeShowerShapesProcessor||    
-|GammaGammaSolutionFinder|| 
-|DistilledPFOCreator|| 
-|LikelihoodPIDProcessor|Performs particle identification|
-|RecoMCTruthLinker|links RecontructedParticles to the MCParticle based on number of hits used| 
-|ComputeShowerShapesProcessor|Performs Shower profile extraction|
-|TaJetClustering|Performs tau jet finding|
-|AddClusterProperties||
-|LcfiplusProcessor||
-|PfoAnalysis|PfoAnalysis analyses output of PandoraPFANew|
-|Add4MomCovMatrixCharged|Set the convariance matrix in (P,E) for all charged pfos in PandoraPFOs Collection|
-|GammaGammaCandidateFinder||
-
+There is a breif summary for [all processors used in ILD Analysis](./processors/summary_ILD_processors.md).
 
 ### How to create a ROOT file with LCTuple
-iLCSoft provides LCTuple processor to change the slcio file into a root file. This can be done by the command:
+LCTuple processor is a common-used processor to change the slcio file into a root file. This can be done by the command:
 `Marlin lctuple.xml --global.GearXMLFile=gear_ILD_l4_v02_dd4hep.xml `
 
 this creates a file <...>_REC_lctuple.root which can be analyzed. The lctuple.xml file can be found in LCTuple/examples/ folder
