@@ -219,7 +219,7 @@ where i in the second line is an integer, which begin from 0 and should smaller 
 
   | name |[id]| index | PDG    | px, py, pz  | px_ep, py_ep, pz_ep   | energy    | gen                | [simstat] | vertex x, y, z | endpoint x, y, z | mass | charge | spin | colorflow | [parents] - [daughters]|
   |------|----|-------|--------|-------------|-----------------------|-----------|--------------------|-----------|----------------|------------------|------|--------|------|-----------|------------------------|
-  |method|    |       |getPDG()|getMomentum()|getMomentumAtEndpoint()|getEnergy()|getGeneratorStatus()|getSimulatorStatus()|getVertex()|getEndpoint()|getMass()|getCharge()|getSpin()|getColorFlow()|getParents(),getDaucters()|
+  |method|    |       |getPDG()|getMomentum()|getMomentumAtEndpoint()|getEnergy()|getGeneratorStatus()|getSimulatorStatus()|getVertex()|getEndpoint()|getMass()|getCharge()|getSpin()|getColorFlow()|getParents(),getDaughters()|
    
    In the above table, the first row is the variable name, and the second row is the corresponding methed to invoke them in the processor. 
 For example, once you declare a new MCParticle, you can use the command like `MC->getPDG()` to get the PDG information of that MCParticle.
