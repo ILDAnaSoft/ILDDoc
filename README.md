@@ -145,7 +145,7 @@ The REC files used for ILD are described [here](./rec/ild_rec_collections.md).
 
 
 ## How to run Marlin for analysis
-You can learn how to write a Marlin steering file from [here](https://github.com/iLCSoft/ilcsoftDoc/blob/master/README.md)
+You can learn how to write a Marlin steering file from [here](https://github.com/iLCSoft/ilcsoftDoc/blob/master/README_Introduction_For_iLCSoft.md)
 
 In this section, we will introduce some common Marlin processors for physics analysis.
 
@@ -167,7 +167,7 @@ For more information about LCTuple, see
 
 
 ## How to program for analysis
-Some general information about how to write a Marlin processor is [here](https://github.com/iLCSoft/ilcsoftDoc/blob/master/README.md)
+Some general information about how to write a Marlin processor is [here](https://github.com/iLCSoft/ilcsoftDoc/blob/master/README_Introduction_For_iLCSoft.md)
 
 Here, we will show some examples of processor programming for analysis. With these basic commands, you can begin to program your own processor for analysis. 
 The further usages of lcio can be found [here](http://lcio.desy.de/v02-09/doc/)
