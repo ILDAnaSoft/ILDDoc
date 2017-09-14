@@ -10,7 +10,7 @@ Other places to find documentation on iLCSoft:
 	- the Github project that holds most of the software repositories
 	- here you can post questions and issues to the software tools
 
-- [https://github.com/iLCSoft](https://github.com/YancyW/ilcsoftDoc/blob/master/README.md)
+- [https://github.com/YancyW/ilcsoftDoc/blob/master/README.md](https://github.com/YancyW/ilcsoftDoc/blob/master/README.md)
 	- a breif introduction for how to use iLCSoft
 
 	
