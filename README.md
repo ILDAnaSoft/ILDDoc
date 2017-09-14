@@ -10,7 +10,7 @@ Other places to find documentation on iLCSoft:
 	- the Github project that holds most of the software repositories
 	- here you can post questions and issues to the software tools
 
-- [https://github.com/YancyW/ilcsoftDoc/blob/master/README_Introduction_For_iLCSoft.md](http://github.com/YancyW/ilcsoftDoc/blob/master/README_Introduction_For_iLCSoft.md)
+- [https://github.com/iLCSoft/ilcsoftDoc/blob/master/README_Introduction_For_iLCSoft.md](http://github.com/iLCSoft/ilcsoftDoc/blob/master/README_Introduction_For_iLCSoft.md)
 	- a breif introduction for how to use iLCSoft
 
 	
@@ -130,7 +130,7 @@ The sample file name in the ILC group will look like
 |e  | beam polorization              |  eL             |  electron is left-handed                           | 
 |p  | beam polorization              |  pR             |  positron is right-handed                          | 
 |n  | job number                     |  001_012        |  the number for simulation group submitting the job|
-|d_ | Job ID                         |  rec_00008603_6 |  this is a REC file                                |
+|d  | Job ID                         |  rec_00008603_6 |  this is a REC file                                |
 
 In principle, one can re-generate all the same events with the same software setting.
 
