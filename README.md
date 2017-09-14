@@ -77,7 +77,7 @@ while doing this you can check your branches with: 	git lola
 	open a terminal and log in
 	ls -a
 	open .gitconfig with an editor 
-	check your data and adapt them as to the example below:
+	check your data and adapt them to the example below:
 	
 	[user]
 		name = <you name>
@@ -102,6 +102,8 @@ while doing this you can check your branches with: 	git lola
  	 [push]
   		## for newer versions of git, otherwise try "simple"
 		default = matching
+		
+	save your changes
 	
 	
 	
