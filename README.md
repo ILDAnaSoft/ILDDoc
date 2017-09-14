@@ -72,6 +72,42 @@ while doing this you can check your branches with: 	git lola
 	in the first line after upoading the branch
 
 
+
+### configuration of git
+	open a terminal and log in
+	ls -a
+	open .gitconfig with an editor 
+	check your data and adapt them to the example below:
+	
+	[user]
+		name = <you name>
+		email = <your email> 
+	[alias]
+		what = whatchanged
+		stat = status
+		ci = commit
+		co = checkout
+		lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+		logf = "!echo \"Remember to add -S<string>\" ; git log --color -p --source --all"
+  		logrl = log --pretty=format:\"%aN %ad %n  - %s\" --date=short
+  	[color]
+		ui = true
+		diff = auto
+		status = auto
+  	[core]
+		excludesfile = <YourHomeFolde>/.gitignore_global
+		editor = gedit
+  	[branch]
+		autosetuprebase = always
+ 	 [push]
+  		## for newer versions of git, otherwise try "simple"
+		default = matching
+		
+	save your changes
+	
+	
+	
+
 ## ILD DST format
 
 The DST files used for ILD are described [here](./dst/ild_dst_collections.md).
