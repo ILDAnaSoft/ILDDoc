@@ -10,7 +10,7 @@ Other places to find documentation on iLCSoft:
 	- the Github project that holds most of the software repositories
 	- here you can post questions and issues to the software tools
 
-- [https://github.com/iLCSoft](https://github.com/iLCSoft/ilcsoftDoc)
+- [https://github.com/iLCSoft](https://github.com/YancyW/ilcsoftDoc/blob/master/README.md)
 	- a breif introduction for how to use iLCSoft
 
 	
@@ -186,7 +186,8 @@ For more information about LCTuple, see
 ## How to program for analysis
 Some general information about how to write a Marlin processor is [here](https://github.com/iLCSoft/ilcsoftDoc/blob/master/README.md)
 
-Here, we will show some examples of processor programming for analysis. With these basic commands, you can begin to program your own processor for analysis. The further usages of lcio can be found [here](http://lcio.desy.de/v02-09/doc/)
+Here, we will show some examples of processor programming for analysis. With these basic commands, you can begin to program your own processor for analysis. 
+The further usages of lcio can be found [here](http://lcio.desy.de/v02-09/doc/)
 
 The most common used collections are MCParticle, PandoraPFOs, MCTruthRecoLink and RecoMCTruthLink.
 You can load MCParticle collection in your processor by  
