@@ -10,9 +10,9 @@ if processors in the input and output column are marked like this: (?)<...> it i
 
 | collection name               | type of objects          | content                 | written  by	(output)		| needed by		(input)											|	input and outpout *									|
 | :---------------------------- | :----------------------- | :---------------------- |:---------------------------- |:------------------------------------------------------------- |:----------------------------------------------------- |
-| BuildUpVertex                 | Vertex                   |   -					 |	-							| VertexFinder													|														|	
+| BuildUpVertex                 | Vertex                   |   -					 |	VertexFinder				| 	-															|														|	
 | BuildUpVertex_RP              | ReconstructedParticle    |   -					 |	-							| 	-															|														|
-| BuildUpVertex_V0              | Vertex                   |   -					 |	-							| VertexFinder													|														|
+| BuildUpVertex_V0              | Vertex                   |   -					 |	VertexFinder				|	-															|														|
 | BuildUpVertex_V0_RP           | ReconstructedParticle    |   -					 |	-							|	-															|														|
 | DistilledPFOs                 | ReconstructedParticle    |   -					 | MyDistilledPFOCreator		|	-															|														|
 | GammaGammaCandidateEtaPrimes  | ReconstructedParticle    |   -					 | MyEtaPrimeFinder				| MyGammaGammaSolutionFinder									|														|
@@ -20,19 +20,19 @@ if processors in the input and output column are marked like this: (?)<...> it i
 | GammaGammaCandidatePi0s       | ReconstructedParticle    |   -					 | MyPi0Finder					| MyGammaGammaSolutionFinder									|														|
 | GammaGammaParticles           | ReconstructedParticle    |   -					 | MyGammaGammaSolutionFinder	| MyDistilledPFOCreator											|														|
 | KinkRecoParticles             | ReconstructedParticle    |   -					 |	-							|	-															|														|
-| KinkVertices                  | Vertex                   |   -					 |	-							| (?)MyDDMarlinPandora											| 														|
-| MCTruthMarlinTrkTracksLink    | LCRelation               |   -					 | MyRecoMCTruthLinker			|	-															| 														|
-| MarlinTrkTracks               | Track                    |  best track collection  |	MyFullLDCTracking_MarlinTrk	| MyExtrToSIT; MyRecoMCTruthLinker; (?)MyDDMarlinPandora		| MyCompute_dEdxProcessor; MyKinkFinder; MyV0Finder; 	|
-| MarlinTrkTracksMCTruthLink    | LCRelation               |   -					 | MyRecoMCTruthLinker			|	-															| 														|
-| PandoraClusters               | Cluster                  |   -					 |	-							| (?)MyComputeShowerShapesProcessor; (?)MyAddClusterProperties;	| MyDDMarlinPandora 									|
+| KinkVertices                  | Vertex                   |   -					 |	-							| MyDDMarlinPandora											| 														|
+| MCTruthMarlinTrkTracksLink    | LCRelation               |  link Reconstructed Particles to MCParticle					 | MyRecoMCTruthLinker			|	-															| 														|
+| MarlinTrkTracks               | Track                    |  best track collection  |	MyFullLDCTracking_MarlinTrk	| MyExtrToSIT; MyRecoMCTruthLinker; MyDDMarlinPandora		| MyCompute_dEdxProcessor; MyKinkFinder; MyV0Finder; 	|
+| MarlinTrkTracksMCTruthLink    | LCRelation               |  link Reconstructed Particles to MCParticle					 | MyRecoMCTruthLinker			|	-															| 														|
+| PandoraClusters               | Cluster                  |   -					 |	-							| (?)MyComputeShowerShapesProcessor; git diffMyAddClusterProperties; MyRecoMCTruthLinker	| MyDDMarlinPandora 									|
 | PandoraPFANewStartVertices    | Vertex                   |   -					 |	-							|	-															|														|
-| PandoraPFOs                   | ReconstructedParticle    |  final PFA objects	     |	-							| VertexFinder;(?)MyComputeShowerShapesProcessor; MyPfoAnalysis; MyAddClusterProperties; MyAddClusterProperties; MyEtaFinder;MyEtaPrimeFinder; MyRecoMCTruthLinker; MyTauFinder;MyAdd4MomCovMatrixCharged; MyPi0Finder; (?)MyLikelihoodPID| MyPFOID												|
-| PrimaryVertex                 | Vertex                   |   -					 |	-							| VertexFinder; (?)MyDDMarlinPandora							|														|
+| PandoraPFOs                   | ReconstructedParticle    |  final PFA objects	     |	-							| VertexFinder;MyComputeShowerShapesProcessor; MyPfoAnalysis; MyAddClusterProperties; MyEtaFinder; MyEtaPrimeFinder; MyRecoMCTruthLinker; MyTauFinder; MyAdd4MomCovMatrixCharged; MyPi0Finder; MyLikelihoodPID| MyPFOID												|
+| PrimaryVertex                 | Vertex                   |   -					 |	VertexFinder				|  																|														|
 | PrimaryVertex_RP              | ReconstructedParticle    |   -					 |	-							|	-															|														|
 | ProngRecoParticles            | ReconstructedParticle    |   -					 |	-							|	-															|														|
-| ProngVertices                 | Vertex                   |   -					 |	-							|	-															|														|
+| ProngVertices                 | Vertex                   |   -					 |	-							| MyDDMarlinPandora															|														|
 | V0RecoParticles               | ReconstructedParticle    |   -					 |	-							|	-															|														|
-| V0Vertices                    | Vertex                   |   -                     |	-							| (?)MyDDMarlinPandora											| 														|
+| V0Vertices                    | Vertex                   |   -                     |	MyV0Finder					| MyDDMarlinPandora											| 														|
 
 
 
