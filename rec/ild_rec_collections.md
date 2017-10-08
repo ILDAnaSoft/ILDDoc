@@ -2,7 +2,7 @@
 
 # REC format
 
-Collections in the ILD REC files:
+Collections in the ILD REC files, here we only summarize the extra collections aside from DST ones:
 
 the first list is the name that you can invoke them in your program, The second list is their types.
 
@@ -10,13 +10,8 @@ the first list is the name that you can invoke them in your program, The second 
    |:----------------------------:|:---------------------:|:----------:|
    | BCAL                         | CalorimeterHit        |         |
    | BeamCalCollection            | SimCalorimeterHit     |         |
-   | BuildUpVertex                | Vertex                |         |
-   | BuildUpVertex_RP             | ReconstructedParticle |         |
-   | BuildUpVertex_V0             | Vertex                |         |
-   | BuildUpVertex_V0_RP          | ReconstructedParticle |         |
    | ClupatraTrackSegments        | Track                 |         |
    | ClupatraTracks               | Track                 |         |
-   | DistilledPFOs                | ReconstructedParticle |         |
    | EcalBarrelCollection         | SimCalorimeterHit     |         |
    | EcalEndcapRingCollection     | SimCalorimeterHit     |         |
    | EcalEndcapsCollection        | SimCalorimeterHit     |         |
@@ -26,10 +21,6 @@ the first list is the name that you can invoke them in your program, The second 
    | EcalEndcapsRelationsSimDigi  | LCRelation            |         |
    | EcalEndcapsRelationsSimRec   | LCRelation            |         |
    | FTDCollection                | SimTrackerHit         |         |
-   | GammaGammaCandidateEtaPrimes | ReconstructedParticle |         |
-   | GammaGammaCandidateEtas      | ReconstructedParticle |         |
-   | GammaGammaCandidatePi0s      | ReconstructedParticle |         |
-   | GammaGammaParticles          | ReconstructedParticle |         |
    | HCalBarrelRPCHits            | SimCalorimeterHit     |         |
    | HCalECRingRPCHits            | SimCalorimeterHit     |         |
    | HCalEndcapRPCHits            | SimCalorimeterHit     |         |
@@ -41,15 +32,7 @@ the first list is the name that you can invoke them in your program, The second 
    | LHCalCollection              | SimCalorimeterHit     |         |
    | LumiCalCollection            | SimCalorimeterHit     |         |
    | MCParticle                   | MCParticle            |         |
-   | MCTruthMarlinTrkTracksLink   | LCRelation            |         |
    | MUON                         | CalorimeterHit        |         |
-   | MarlinTrkTracks              | Track                 |         |
-   | MarlinTrkTracksMCTruthLink   | LCRelation            |         |
-   | PandoraClusters              | Cluster               |         |
-   | PandoraPFANewStartVertices   | Vertex                |         |
-   | PandoraPFOs                  | ReconstructedParticle |         |
-   | PrimaryVertex                | Vertex                |         |
-   | PrimaryVertex_RP             | ReconstructedParticle |         |
    | RelationBCalHit              | LCRelation            |         |
    | RelationLHcalHit             | LCRelation            |         |
    | RelationLcalHit              | LCRelation            |         |
