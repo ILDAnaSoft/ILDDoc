@@ -72,7 +72,6 @@ while doing this you can check your branches with: 	git lola
 	in the first line after upoading the branch
 
 
-
 ### configuration of git
 	open a terminal and log in
 	ls -a
