@@ -72,7 +72,6 @@ while doing this you can check your branches with: 	git lola
 	in the first line after upoading the branch
 
 
-
 ### configuration of git
 	open a terminal and log in
 	ls -a
@@ -138,19 +137,23 @@ In principle, one can re-generate all the same events with the same software set
 ## ILD format
 Below are the generally structure of a DST/REC slcio file.
 
-The DST files used for ILD are described [here](./dst/ild_dst_collections.md).
+The DST files used for ILD are described at [./dst/ild_dst_collections.md](./dst/ild_dst_collections.md).
 
-The REC files used for ILD are described [here](./rec/ild_rec_collections.md).
+The REC files used for ILD are described at [./rec/ild_rec_collections.md](./rec/ild_rec_collections.md).
+
 
 
 
 ## How to run Marlin for analysis
-You can learn how to write a Marlin steering file from [here](https://github.com/iLCSoft/ilcsoftDoc/blob/master/README_Introduction_For_iLCSoft.md)
+You can learn how to write a Marlin steering file from iLCSoft Documents at [https://github.com/iLCSoft/ilcsoftDoc/blob/master/README_Introduction_For_iLCSoft.md](https://github.com/iLCSoft/ilcsoftDoc/blob/master/README_Introduction_For_iLCSoft.md)
 
 In this section, we will introduce some common Marlin processors for physics analysis.
 
-### Processors for reconstructed particles 
-There is a breif summary for [all processors used in ILD Analysis](./processors/summary_ILD_processors.md).
+### Processors for reconstructed 
+There is a breif summary for [processors for reconstructing particles in ILD Analysis](./processors/summary_ILD_processors_for_reconstruction.md).
+
+### Processors for analysis
+There is a breif summary for [processors for further analysis in ILD Analysis](./processors/summary_ILD_processors_for_analysis.md).
 
 ### How to create a ROOT file with LCTuple
 LCTuple processor is a common-used processor to change the slcio file into a root file. This can be done by the command:
@@ -162,15 +165,15 @@ In the new root file, all the particle information is reserved, but lcio data st
 It means that you can only rely on root programming knowledge, and don't need to know anything about lcio API. 
 
 For more information about LCTuple, see 
-[here](https://github.com/iLCSoft/LCTuple)
+[https://github.com/iLCSoft/LCTuple](https://github.com/iLCSoft/LCTuple)
 
 
 
 ## How to program for analysis
-Some general information about how to write a Marlin processor is [here](https://github.com/iLCSoft/ilcsoftDoc/blob/master/README_Introduction_For_iLCSoft.md)
+Some general information about how to write a Marlin processor is at [https://github.com/iLCSoft/ilcsoftDoc/blob/master/README_Introduction_For_iLCSoft.md](https://github.com/iLCSoft/ilcsoftDoc/blob/master/README_Introduction_For_iLCSoft.md)
 
 Here, we will show some examples of processor programming for analysis. With these basic commands, you can begin to program your own processor for analysis. 
-The further usages of lcio can be found [here](http://lcio.desy.de/v02-09/doc/)
+The further usages of lcio can be found at [http://lcio.desy.de/v02-09/doc/](http://lcio.desy.de/v02-09/doc/)
 
 The most common used collections are MCParticle, PandoraPFOs, MCTruthRecoLink and RecoMCTruthLink.
 You can load MCParticle collection in your processor by  
@@ -213,13 +216,13 @@ For example, once you declare a new MCParticle, you can use the command like `MC
    |[id]| com | type | momentum | energy | mass | charge | position ( x,y,z ) | pidUsed | GoodnessOfPID | covariance( px,py,pz,E ) | particles([id]) | tracks ([id]) | clusters ([id]) | particle ids ([id],PDG,(type)) | vertices|
    |----|-----|------|----------|--------|------|--------|--------------------|---------|---------------|--------------------------|-----------------|---------------|-----------------|--------------------------------|---------|
 
-   The method for invoke these variables can be found at [here](http://lcio.desy.de/v02-09/doc/doxygen_api/html/classEVENT_1_1ReconstructedParticle.html), where you can also find other c++ API for lcio.
+   The method for invoke these variables can be found at [http://lcio.desy.de/v02-09/doc/doxygen_api/html/classEVENT_1_1ReconstructedParticle.html](http://lcio.desy.de/v02-09/doc/doxygen_api/html/classEVENT_1_1ReconstructedParticle.html), where you can also find other c++ API for lcio.
 
 The MCTruthRecoLink reflects that if you have know a MCParticle, then what reconstructed particles it can be. You can load this information by a LCRelationNavigator.
 For example 
 
 ```
-LCCollection relation_mcpfo= new LCRelationNavigator( evt->getCollection( _mcpfoRelation ) );
+LCRelationNavigator* relation_mcpfo= new LCRelationNavigator( evt->getCollection( _mcpfoRelation ) );
 ```
 
 Then use
