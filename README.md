@@ -11,7 +11,7 @@ Other places to find documentation on iLCSoft:
 	- here you can post questions and issues to the software tools
 
 - [https://github.com/iLCSoft/ilcsoftDoc/blob/master/README_Introduction_For_iLCSoft.md](http://github.com/iLCSoft/ilcsoftDoc/blob/master/README_Introduction_For_iLCSoft.md)
-	- a breif introduction for how to use iLCSoft
+	- a brief introduction for how to use iLCSoft
 
 	
 - [http://ilcsoft.desy.de/portal](http://ilcsoft.desy.de/portal)
@@ -27,82 +27,116 @@ Other places to find documentation on iLCSoft:
 If you are new to iLCSoft you can follow this [tutorial](./tutorial/gaede_ilcsoft_tutorial.pdf)
 to familiarize yourself with the basic software and analysis tools.
 
-for a short version, see below:
+
+If you are new to git and Github you *should* follow this [tutorial](https://github.com/andresailer/tutorial).
+
+For a short version of how to configure git correctly see below.
 
 ### how to download, change and upload files/repositories (ILDDoc.git in this example)
 	
-	####clone ILDDoc.git
-	git clone https://github.com/ILDAnaSoft/ILDDoc.git   			
-	cd ILDDoc
-	
-	git remote add downstream
-	https://<yourUserName>@github.com/<yourUserName>/ILDDoc.git 	
-	(use your github username)
-	
-	####create a new branch; choose a name
-	git checkout -b <myNewBranch>									
-	
-	open the file you want to change and execute your changes (e.g.: gedit <filename> &)
-	
-	####check the changed version
-	git diff														
-	
-	####commit your changes to local repository; write a commit message in editor window; close the window
-	git ci -a 														
-																	
-	####upload file back to your github account
-	git push downstream	<myNewBranch>									
-	
-    reload your own github webite (https://github.com/<yourUserName>/ILDDoc)
-    you should see your commit
-    trigger pull request on website 
+- clone ILDDoc.git
 
-	####bring downstream master in synch with origin master after pull request has been accepted:
+		git clone https://github.com/ILDAnaSoft/ILDDoc.git
+		cd ILDDoc
 	
-	git checkout master	
-	git pull origin
-	git push downstream master										
+- create a fork of the repository on the Github web page
+  - if you have not yet done so earlier
+
+- add your fork as remote downstream using your GitHub username
+
+		git remote add downstream  https://<yourUserName>@github.com/<yourUserName>/ILDDoc.git
+	
+- create a new feature branch; choose a meaningful name
+
+		git checkout -b <myNewBranch>
+	
+- open the file you want to change and execute your changes (e.g.: edit <filename> &)
+	
+- check the the changed version
+
+		git diff
+
+- commit your changes to local repository; write a commit message in editor window; close the window
+
+		git ci -a
+
+- upload file back to your github account
+
+		git push downstream	<myNewBranch>
+
+- reload your own github website (https://github.com/<yourUserName>/ILDDoc)
+  - you should see your commit
+  - trigger a pull request on the web site
 
 
+- bring your local repository in sync with the *origin*
+- **after** the pull request has been accepted
+	
+		git checkout master
+		git pull origin
+
+- optionally you can also update the master on your fork 
+
+		git push downstream master
 
 
-while doing this you can check your branches with: 	git lola
-	if everything went fine, you shoud be able to see sth like 
-		* b6f0c82 (HEAD, refs/heads/<myNewBranch>) <your commit message> 
-	in the first line after upoading the branch
+#### some useful git commands
+
+Use the following git commands to investigate the status of your local git repository:
+
+	git lola
+
+Displays the current HEAD and all known branches of your local repository and all known remotes. For example
+if everything went fine after you committed some changes, you should see sth like 
+
+	* b6f0c82 (HEAD, refs/heads/<myNewBranch>) <your commit message> 
+
+You can always check the current status (in particular the current branch with:
+
+	git stat
+
+This also displays locally modified and staged files.
+
+
+To display in detail the log messages of recent commits do:
+
+	git logf
+
+Refer to more exhaustive git documentation for more involved tasks. 
+
 
 
 ### configuration of git
-	open a terminal and log in
-	ls -a
-	open .gitconfig with an editor 
-	check your data and adapt them to the example below:
+
+- open a terminal and log in
+- open `.gitconfig` with an editor 
+- check your data and adapt them to the example below:
 	
-	[user]
-		name = <you name>
-		email = <your email> 
-	[alias]
-		what = whatchanged
-		stat = status
-		ci = commit
-		co = checkout
-		lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-		logf = "!echo \"Remember to add -S<string>\" ; git log --color -p --source --all"
-  		logrl = log --pretty=format:\"%aN %ad %n  - %s\" --date=short
-  	[color]
-		ui = true
-		diff = auto
-		status = auto
-  	[core]
-		excludesfile = <YourHomeFolde>/.gitignore_global
-		editor = gedit
-  	[branch]
-		autosetuprebase = always
- 	 [push]
-  		## for newer versions of git, otherwise try "simple"
-		default = matching
+		[user]
+			name = <you name>
+			email = <your email> 
+		[alias]
+			what = whatchanged
+			stat = status
+			ci = commit
+			co = checkout
+			lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+			logf = "!echo \"Remember to add -S<string>\" ; git log --color -p --source --all"
+			logrl = log --pretty=format:\"%aN %ad %n  - %s\" --date=short
+		[color]
+			ui = true
+			diff = auto
+			status = auto
+		[core]
+			excludesfile = <YourHomeFolde>/.gitignore_global
+			editor = gedit
+		[branch]
+			autosetuprebase = always
+		[push]
+			## for newer versions of git, otherwise try "simple"
+			default = matching
 		
-	save your changes
+- save your changes
 	
 	
 	
@@ -118,7 +152,7 @@ The sample file name in the ILD group will look like
 
 `rv01-19-04_lcgeo.sv01-19-04_lcgeo.mILD_l4_v02.E250-TDR_ws.I106479.Pe2e2h.eL.pR.n001_012.d_rec_00008603_6.slcio`
 
-|short name | meaning  | example | explaination |
+|short name | meaning  | example | explanation |
 |:---------:|:--------:|:-------:|:------------:|
 |rv | reconstruction software version|  01-19-04_lcgeo |                                                    |
 |sv | simulation     software version|  01-19-04_lcgeo |                                                    |
@@ -150,10 +184,10 @@ You can learn how to write a Marlin steering file from iLCSoft Documents at [htt
 In this section, we will introduce some common Marlin processors for physics analysis.
 
 ### Processors for reconstructed 
-There is a breif summary for [processors for reconstructing particles in ILD Analysis](./processors/summary_ILD_processors_for_reconstruction.md).
+There is a brief summary for [processors for reconstructing particles in ILD Analysis](./processors/summary_ILD_processors_for_reconstruction.md).
 
 ### Processors for analysis
-There is a breif summary for [processors for further analysis in ILD Analysis](./processors/summary_ILD_processors_for_analysis.md).
+There is a brief summary for [processors for further analysis in ILD Analysis](./processors/summary_ILD_processors_for_analysis.md).
 
 ### How to create a ROOT file with LCTuple
 LCTuple processor is a common-used processor to change the slcio file into a root file. This can be done by the command:
@@ -193,7 +227,7 @@ LCCollection* AllMC= evt->getCollection( _colMC) ;
 ```
 where "evt" is the pointer of the event.
 
-To get the pointer of one specific MCParitcle, you can use
+To get the pointer of one specific MCParticle, you can use
 ```
 	int nMC = AllMC->getNumberOfElements();
 	MCParticle* MC = dynamic_cast< MCParticle* >( AllMC->getElementAt(i) );
