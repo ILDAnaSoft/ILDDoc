@@ -1,3 +1,15 @@
+# Getting an ILD repository
+
+If your are part of the ILD collaboration and doing physics analysis, this the place to end up. You can contact us by email in order to get a public repository in the ILDAnaSoft collaboration and we will create it for your.
+
+In order to be efficient, we would need the following information in the email:
+
+- Your name and surname
+- Your github user name
+- A short description of the repository to create (15 words)
+- The name of the repository you want
+
+If you are working on an [ILD physics benchmark](https://confluence.desy.de/display/ILD/Benchmarks+for+physics-driven+detector+optimisation), please provide a short name. For example, for the benchmark "*Hadronic branching ratios of the Higgs: H-->bb/cc/gg*", the name "*Hbbccgg*" would be ideal. Note that for the case of benchmark analysis repositories, the name "ILDBench_" will prepended in the repository name (e.g *ILDBench_Hbbccgg*). 
 
 # Running ILD software and analysis
 
