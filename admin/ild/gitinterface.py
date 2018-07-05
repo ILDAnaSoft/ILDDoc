@@ -112,90 +112,10 @@ class Repo(object):
     treesha = result['tree']['sha']
     return treesha
 
-    
-  # def _getReleaseNotes( self ):
-  #   """ parses the PRs and comments for ReleaseNotes to collate them  """
-  #   if self._prsSinceLastTag is None:
-  #     self._getPRsSinceLatestTag()
-  #   if not self._prsSinceLastTag:
-  #     self._releaseNotes = defaultdict( OrderedDict )
-  #     self.log.info( "No PRs found" )
-  #     return
-  # 
-  #   relNotes = defaultdict( OrderedDict )
-  #   self.log.info( "Getting release notes from PR comments ... ")
-  #   for pr in self._prsSinceLastTag:
-  #     prID = pr['number']
-  #     self.log.debug( "Looking for comments for PR %s", prID )
-  #     date = pr['merged_at'][:10] ## only YYYY-MM-DD
-  #     author = self.getAuthorForPR( pr )
-  #     relNotes[date][prID] = dict( author=author, notes=[], date=pr['merged_at'], prID=pr['number'] )
-  # 
-  #     notes = parseForReleaseNotes( pr['body'] )
-  #     if notes:
-  #       relNotes[date][prID]['notes'].extend( notes )
-  #     commentTexts = self.getCommentsForPR( prID )
-  #     for comment in commentTexts:
-  #       notes = parseForReleaseNotes( comment )
-  #       if notes:
-  #         relNotes[date][prID]['notes'].extend( notes )
-  #   self._releaseNotes = relNotes
-  #   self.log.info( "... finished getting release notes" )
-  #   return
-
-#   def formatReleaseNotes( self ):
-#     """ print the release notes """
-#     if self._releaseNotes is None and not self.isUpToDate():
-#       self._getReleaseNotes()
-# 
-#     if self.isUpToDate():
-#       return
-# 
-#     releaseNotesString = "# " + self.newVersion.split("-pre")[0] ## never write comments for new releases
-# 
-#     for date, prs in self._releaseNotes.iteritems():
-#       for prID,content in prs.iteritems():
-#         if not content.get( 'notes' ):
-#           continue
-# 
-#         for line in content['notes']:
-#           thisContent = line.strip()
-#           indentedContent = "  " + "\n  ".join(thisContent.split("\n"))
-#           relNoteDict = dict( author=content['author'],
-#                               prLink="[PR#%s](https://github.com/%s/%s/pull/%s)" % (prID, self.owner, self.repo, prID ),
-#                               date=date,
-#                               content=indentedContent.rstrip(),
-#                             )
-#           releaseNotesString += """
-# 
-# * %(date)s %(author)s (%(prLink)s)
-# %(content)s""" % relNoteDict
-# 
-#     ## cleanup "\r" from strings
-#     releaseNotesString = releaseNotesString.replace("\r","")
-#     return releaseNotesString
-# 
-# 
-  # def commitNewReleaseNotes( self ):
-  #   """ get the new release notes and commit them to the filename """
-  #   content, sha, encodedOld= self.getFileFromBranch( self.releaseNotesFilename )
-  #   if self.latestTagInfo['pre']:
-  #     content = "\n".join(content.split("\n")[2:]) ## remove first line which is the release name
-  #   contentNew = self.formatReleaseNotes() + "\n\n" + content
-  #   
-  #   contentEncoded = contentNew.encode('base64')
-  # 
-  #   if encodedOld.replace("\n","") == contentEncoded.replace("\n",""):
-  #     self.log.info("No changes in %s, not making commit", self.releaseNotesFilename )
-  #     return
-  #   message = "Release Notes for %s" % self.newVersion
-  #   self.createGithubCommit(self.releaseNotesFilename, sha, contentEncoded, message=message)
-
 
   def getFileFromBranch( self, filename ):
     """return the content of the file in the given branch, filename needs to be the full path"""
-  
-    result = curl2Json(url=self._github( "contents/%s?ref=%s" %(filename,self.branch)))
+    result = curl2Json(url=self._github( "contents/%s?ref=%s" %(filename, self.branch)))
     encoded = result.get( 'content', None )
     if encoded is None:
       self.log.error( "File %s not found for %s", filename, self )
@@ -203,29 +123,7 @@ class Repo(object):
     content = encoded.decode("base64")
     sha = result['sha']
     return content, sha, encoded
-  # 
-  # def updateVersionSettings( self ):
-  #   """ update the version settings in CMakeLists """
-  # 
-  #   content, sha, encodedOld = self.getFileFromBranch( self.cmakeBaseFile )
-  #   major, minor, patch = self._newTag.getMajorMinorPatch()
-  #   pMajor = re.compile('_VERSION_MAJOR [0-9]*')
-  #   pMinor = re.compile('_VERSION_MINOR [0-9]*')
-  #   pPatch = re.compile('_VERSION_PATCH [0-9a-zA-Z]*')
-  #   content = pMajor.sub( "_VERSION_MAJOR %s" % major, content )
-  #   content = pMinor.sub( "_VERSION_MINOR %s" % minor, content )
-  #   content = pPatch.sub( "_VERSION_PATCH %s" % patch, content )
-  #   contentEncoded = content.encode('base64')
-  #   if encodedOld.replace("\n","") == contentEncoded.replace("\n",""):
-  #     self.log.info("No changes in %s, not making commit", self.cmakeBaseFile )
-  #   else:
-  #     self.log.info( "Update %s is to %s" , self.cmakeBaseFile, self.newVersion )
-  #     message = "Updating version to %s" % self.newVersion
-  #     self.createGithubCommit(self.cmakeBaseFile, sha, contentEncoded, message=message)
 
-#    if self.repo.lower() == "dd4hep" and self.cmakeBaseFile == "CMakeLists.txt":
-#      self.cmakeBaseFile = "DDSegmentation/CMakeLists.txt"
-#      self.updateVersionSettings()
 
   def createGithubCommit( self, filename, fileSha, content, message ):
     """
@@ -249,10 +147,6 @@ class Repo(object):
 
     """
     coDict = dict( path=filename, content=content, branch=self.branch, sha=fileSha, message=message, force='true' )
-    if self._dryRun:
-      coDict.pop('content')
-      self.log.info( "DryRun: not actually making commit: %s", coDict )
-      return
 
     result = curl2Json(requestType='PUT', parameterDict=coDict,
                        url=self._github("contents/%s" % filename))
@@ -262,21 +156,9 @@ class Repo(object):
 
     return result
 
-
-  # def isUpToDate( self ):
-  #   """ return True/False wether we have to make a new tag or not"""
-  #   if self.latestTagInfo['sha'] != self._lastCommitOnBranch['sha']:
-  #     return False
-  # 
-  #   ## this means the commits are the same, but maybe we want to make a proper tag now
-  #   if 'pre' in self.latestTagInfo['name'] and 'pre' not in self.newTag:
-  #     return False
-  # 
-  #   return True
-
     
   def addCollaborator( self, user ):
-    """  """
+    """ add a collaborator to this repository """
     addDict = dict(permission="push")
     result = curl2Json(requestType="PUT", parameterDict=addDict, url=self._githubAPI("repos/{0}/{1}/collaborators/{2}".format(self.owner, self.repo, user)))
     
@@ -287,16 +169,20 @@ class Repo(object):
     Only work if it has been forked from the Skeleton repository """
     files = ["Readme.md", "CMakeLists.txt", "source/CMakeLists.txt"]
     fmtDict = dict(repository=self.repo, description=description)
+    
     for f in files:
       self.formatFileAndCommit(fmtDict, f)
+      
     # Set the repository description
     editDict = dict( name=self.repo, description=description )
     result = curl2Json(requestType="PATCH", parameterDict=editDict, url=self._githubAPI("repos/{0}/{1}".format(self.owner, self.repo)))
  
   def formatFileAndCommit( self, options, filen ):
+    """ format the file `filen` with the `options` dictionary and create a new commit """
     content, sha, encodedOld = self.getFileFromBranch( filen )
     contentNew = content % options
     contentEncoded = contentNew.encode('base64')
+    
     message = "Formated %s on creation" % filen
-    self.createGithubCommit(filen, sha, contentEncoded, message=message)
+    self.createGithubCommit( filen, sha, contentEncoded, message=message )
     

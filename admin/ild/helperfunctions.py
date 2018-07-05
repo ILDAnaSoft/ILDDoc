@@ -7,15 +7,14 @@ import tempfile
 import shutil
 import re
 try:
-  from GitTokens import GITHUBTOKEN, GITHUBUSER
+  from GitTokens import GITHUBTOKEN
 except ImportError:
-  raise ImportError("""Failed to import GITHUBTOKEN/GITHUBUSER please point the pythonpath to your GitTokens.py file which contains your "Personal Access Token" for Github
+  raise ImportError("""Failed to import GITHUBTOKEN please point the pythonpath to your GitTokens.py file which contains your "Personal Access Token" for Github
 
                     I.e.:
                     Filename: GitTokens.py
                     Content:
                     ```
-                    GITHUBUSER = "toto"
                     GITHUBTOKEN = "e0b83063396fc632646603f113437de9"
                     ```
                     (without the triple quotes)
@@ -203,7 +202,7 @@ def createRepository( owner, repository, description ):
   if 'owner' not in result:
     raise RuntimeError( "Failed to create repository: %s" % result['message'] )
 
-def cloneAndPush(  owner, repository, newOwner, newRepository, force=False ):
+def cloneAndPush( owner, repository, newOwner, newRepository ):
   # clone repo
   log = logging.getLogger("GitHub")
   directory = tempfile.mkdtemp()
@@ -211,15 +210,11 @@ def cloneAndPush(  owner, repository, newOwner, newRepository, force=False ):
   log.info( subprocess.check_output( command ) )
 
   # add new remote
-  # command = ["git", "-C", directory, "remote", "set-url", "origin", "https://{user}:{token}@github.com/{owner}/{repository}.git".format(user=GITHUBUSER, owner=newOwner, token=GITHUBTOKEN, repository=newRepository)]
-  command = ["git", "-C", directory, "remote", "set-url", "origin", "git@github.com:{owner}/{repository}.git".format(user=GITHUBUSER, owner=newOwner, token=GITHUBTOKEN, repository=newRepository)]
+  command = ["git", "-C", directory, "remote", "set-url", "origin", "git@github.com:{owner}/{repository}.git".format(owner=newOwner, token=GITHUBTOKEN, repository=newRepository)]
   log.info( subprocess.check_output( command ) )
 
   # push to a new location
-  # command = ["git", "-C", directory, "push", "fork", "master"]
-  command = ["git", "-C", directory, "push", "origin", "HEAD:templating"]
-  # if force:
-  #   command.append("--force")
+  command = ["git", "-C", directory, "push", "origin", "HEAD:master"]
   log.info( subprocess.check_output( command ) )
 
   # remove the temporary local repo

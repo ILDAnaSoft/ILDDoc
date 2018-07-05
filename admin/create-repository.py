@@ -103,19 +103,18 @@ class ILDAnaSoftAdmin(object):
     """ execute everything """
     
     # Create the new repository
-    if self.noCreate:
+    if not self.noCreate:
       createRepository( self.owner, self.repository, self.description )
         
     # Copy the skeleton repository
-    cloneAndPush( "rete", "Skeleton", self.owner, self.repository, True )
+    cloneAndPush( self.owner, "Skeleton", self.owner, self.repository, True )
     
     repo = Repo( self.owner, self.repository )
     
     if self.user:
       repo.addCollaborator( self.user )
 
-    # TODO restart from here ! Not working from here !
-    self.repo.formatSkeletonFiles()
+    repo.formatSkeletonFiles( self.description )
 
 if __name__ == "__main__":
   RUNNER = ILDAnaSoftAdmin()
