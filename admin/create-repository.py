@@ -64,7 +64,7 @@ class ILDAnaSoftAdmin(object):
     parser.add_argument("--benchmark", action="store_true", dest="benchmark", default=self.benchmark,
                         help="Whether the repository is an ILD physics benchmark (add ILDbench_ to repository name)")
                         
-    parser.add_argument("--no-create", action="store_true", dest="benchmark", default=self.noCreate,
+    parser.add_argument("--no-create", action="store_true", dest="noCreate", default=self.noCreate,
                         help="Whether the skip repository creation")
                         
     parser.add_argument("--description", action="store", default=self.description,
@@ -107,7 +107,7 @@ class ILDAnaSoftAdmin(object):
       createRepository( self.owner, self.repository, self.description )
         
     # Copy the skeleton repository
-    cloneAndPush( self.owner, "Skeleton", self.owner, self.repository, True )
+    cloneAndPush( self.owner, "Skeleton", self.owner, self.repository )
     
     repo = Repo( self.owner, self.repository )
     
