@@ -1,5 +1,9 @@
 # Administrator scripts
 
+Software requirements:
+
+- python 2.6/2.7 flavors
+- git >= 1.8.5
 
 ## Creating a repository for analyzers
 
