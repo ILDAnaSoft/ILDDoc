@@ -1,0 +1,48 @@
+
+%%% allow to declare columns in markdown easily
+\newcommand{\colA}[1]{\begin{columns}[t]\begin{column}{#1\textwidth}} 
+\newcommand{\colB}[1]{\end{column}\begin{column}{#1\textwidth}} 
+\newcommand{\colC}[1]{\end{column}\begin{column}{#1\textwidth}} 
+\newcommand{\colEnd}{\end{column}\end{columns}}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+
+%%% declare a block inside columns
+\newcommand{\blk}[1]{\begin{block}{#1}}
+\newcommand{\blkE}{\end{block}}
+
+%%% simplify including pictures
+\newcommand{\pic}[2]{\includegraphics[width=#1\textwidth]{#2}}
+
+
+%%% define the logo to be used  ---------------------------
+%%\pgfdeclareimage[height=0.6cm]{logo}{./figs/aida2020_logo.png}
+\pgfdeclareimage[height=0.6cm]{logo}{./figs/ilcsoft_logo}
+%\pgfdeclareimage[height=0.6cm]{logo_ild}{./figs/ild_logo_blue_bg.png}
+\pgfdeclareimage[height=0.7cm]{logo_ild}{./figs/ild_logo_white_bg.png}
+
+%%% turn captions for fugures off
+\usepackage[labelformat=empty]{caption}
+
+% put the logo into the header box
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+\newcommand{\mylogo}{%
+%\begin{textblock}{14}(105.0,1.4)
+\begin{textblock}{14}(120.0,1.4)
+  \pgfuseimage{logo_ild}
+\end{textblock}
+\begin{textblock}{14}(135.0,1.4)
+  \pgfuseimage{logo}
+\end{textblock}
+}
+\newcommand*\oldmacro{}%
+\let\oldmacro\insertshorttitle%
+\renewcommand*\insertshorttitle{%
+  \mylogo
+  \oldmacro\hfill%
+}
+%%----------------------------------------------------------
