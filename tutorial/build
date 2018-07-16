@@ -1,0 +1,6 @@
+pandoc -t beamer \
+-V usefonttheme=structurebold \
+-V theme=Madrid -V colortheme=frank \
+-V classoption:aspectratio=169 \
+-H header_include_ild.tex \
+gaede_ilcsoft_tutorial.md -s -o gaede_ilcsoft_tutorial.pdf
