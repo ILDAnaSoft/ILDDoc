@@ -79,6 +79,7 @@ class ILDAnaSoftAdmin(object):
     self.printLevel = _parsePrintLevel( parsed.printLevel )
     logging.basicConfig( level=self.printLevel, format='%(levelname)-5s - %(name)-8s: %(message)s' )
 
+    self.noCreate = parsed.noCreate
     self.user = parsed.user
     self.description = parsed.description
     self.benchmark = parsed.benchmark
