@@ -11,6 +11,17 @@ In order to be efficient, we would need the following information in the email:
 
 If you are working on an [ILD physics benchmark](https://confluence.desy.de/display/ILD/Benchmarks+for+physics-driven+detector+optimisation), please provide a short name. For example, for the benchmark "*Hadronic branching ratios of the Higgs: H-->bb/cc/gg*", the name "*Hbbccgg*" would be ideal. Note that for the case of benchmark analysis repositories, the name "ILDBench_" will prepended in the repository name (e.g *ILDBench_Hbbccgg*). 
 
+# ILD MC production known issues
+
+Among the list of Github issues of this package, you will see the label [ILDProdIssues](https://github.com/ILDAnaSoft/ILDDoc/labels). All of this issues reference known problems in the MC samples centrally produced with the new version of iLCSoft (v02-00-XX). They can be found here:
+
+[https://github.com/ILDAnaSoft/ILDDoc/issues?utf8=%E2%9C%93&q=label%3AILDProdIssues](https://github.com/ILDAnaSoft/ILDDoc/issues?utf8=%E2%9C%93&q=label%3AILDProdIssues)
+
+This issues also provide, when possible, solutions or work-around to treat these problems in the produced samples.
+If you find any additional problems in these samples, please open a new issue here:
+
+[https://github.com/ILDAnaSoft/ILDDoc/issues/new](https://github.com/ILDAnaSoft/ILDDoc/issues/new)
+
 # Running ILD software and analysis
 
 This package serves as an entry point for general documentation on running iLCSoft (see: [https://github.com/iLCSoft](https://github.com/iLCSoft) ) for [ILD](https://confluence.desy.de/display/ILD).
