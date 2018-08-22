@@ -128,7 +128,6 @@ To display in detail the log messages of recent commits do:
 Refer to more exhaustive git documentation for more involved tasks. 
 
 
-
 ### configuration of git
 
 - open a terminal and log in
@@ -195,7 +194,6 @@ In principle, one can re-generate all the same events with the same software set
 Below are the generally structure of a DST/REC slcio file.
 
 The DST files used for ILD are described at [./dst/ild_dst_collections.md](./dst/ild_dst_collections.md).
-
 The REC files used for ILD are described at [./rec/ild_rec_collections.md](./rec/ild_rec_collections.md).
 
 
@@ -207,10 +205,12 @@ You can learn how to write a Marlin steering file from iLCSoft Documents at [htt
 In this section, we will introduce some common Marlin processors for physics analysis.
 
 ### Processors for reconstructed 
-There is a brief summary for [processors for reconstructing particles in ILD Analysis](./processors/summary_ILD_processors_for_reconstruction.md).
+
+There is a breif summary for [processors for reconstructing particles in ILD Analysis](./processors/summary_ILD_processors_for_reconstruction.md).
 
 ### Processors for analysis
-There is a brief summary for [processors for further analysis in ILD Analysis](./processors/summary_ILD_processors_for_analysis.md).
+There is a breif summary for [processors for further analysis in ILD Analysis](./processors/summary_ILD_processors_for_analysis.md).
+
 
 ### How to create a ROOT file with LCTuple
 LCTuple processor is a common-used processor to change the slcio file into a root file. This can be done by the command:
