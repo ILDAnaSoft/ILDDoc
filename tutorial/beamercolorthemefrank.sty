@@ -1,0 +1,71 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\ProvidesPackageRCS $Header: /home/vedranm/bitbucket/beamer/base/themes/color/beamercolorthemecrane.sty,v d02a7cf4d8ae 2010/06/17 09:11:41 rivanvx $
+
+
+\mode<presentation>
+
+%\definecolor{craneorange}{RGB}{252,187,6} % original
+%\definecolor{craneorange}{RGB}{241,244,20} % green yellow
+\definecolor{craneorange}{RGB}{255,255,153} %  light yellow
+%\definecolor{craneorange}{RGB}{230,200,100} % 
+
+%\definecolor{craneblue}{RGB}{4,6,76}  % original
+%\definecolor{craneblue}{RGB}{8,12,152}
+\definecolor{craneblue}{RGB}{6,9,114}
+%\definecolor{craneblue}{RGB}{241,244,20}  % green yellow
+
+\setbeamercolor{structure}{fg=craneblue}
+
+\definecolor{white}{RGB}{255,255,255}
+
+\setbeamercolor{palette primary}{fg=craneblue,bg=craneorange!50}
+\setbeamercolor{palette secondary}{fg=craneblue,bg=craneorange!60}
+\setbeamercolor{palette tertiary}{fg=craneblue,bg=craneorange!80}
+\setbeamercolor{palette quaternary}{fg=craneblue,bg=craneorange}
+
+%\setbeamercolor{titlelike}{parent=palette quaternary}
+\setbeamercolor{titlelike}{parent=palette secondary}
+
+\setbeamercolor{block title}{fg=craneblue,bg=craneorange}
+%\setbeamercolor{block title alerted}{use=alerted text,fg=craneblue,bg=alerted text.fg!75!bg}
+\setbeamercolor{block title alerted}{use=alerted text,fg=white,bg=alerted text.fg!75!bg}
+%\setbeamercolor{block title example}{use=example text,fg=craneblue,bg=example text.fg!75!bg}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!25!bg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!25!bg}
+%\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!25!bg}
+
+
+
+
+%%%%% rose : %%%%%
+%\setbeamercolor{block title}{use=structure,fg=structure.fg,bg=structure.fg!20!bg}
+%\setbeamercolor{block title alerted}{use=alerted text,fg=alerted text.fg,bg=alerted text.fg!20!bg}
+\setbeamercolor{block title example}{use=example text,fg=example text.fg,bg=example text.fg!20!bg}
+%\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!50!bg}
+%\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!50!bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!50!bg}
+%%%%%%%%%%%%%%%%%%
+
+
+
+\setbeamercolor{sidebar}{bg=craneorange!70}
+  
+\setbeamercolor{palette sidebar primary}{fg=craneblue}
+\setbeamercolor{palette sidebar secondary}{fg=craneblue!75}
+\setbeamercolor{palette sidebar tertiary}{fg=craneblue!75}
+\setbeamercolor{palette sidebar quaternary}{fg=craneblue}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+\mode
+<all>
