@@ -11,6 +11,12 @@ In order to be efficient, we would need the following information in the email:
 
 If you are working on an [ILD physics benchmark](https://confluence.desy.de/display/ILD/Benchmarks+for+physics-driven+detector+optimisation), please provide a short name. For example, for the benchmark "*Hadronic branching ratios of the Higgs: H-->bb/cc/gg*", the name "*Hbbccgg*" would be ideal. Note that for the case of benchmark analysis repositories, the name "ILDBench_" will prepended in the repository name (e.g *ILDBench_Hbbccgg*). 
 
+# ILD root style
+
+Please use the ILDStyle defined in this [rootlogon.C](https://confluence.desy.de/download/attachments/86672293/rootlogon.C) macro for your ILD plots.
+In addition, write "ILD" or "ILD preliminary" on your plots as appropriate.
+
+
 # ILD MC production known issues
 
 Among the list of Github issues of this package, you will see the label [ILDProdIssues](https://github.com/ILDAnaSoft/ILDDoc/labels). All of this issues reference known problems in the MC samples centrally produced with the new version of iLCSoft (v02-00-XX). They can be found here:
