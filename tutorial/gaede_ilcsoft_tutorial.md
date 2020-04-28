@@ -163,20 +163,21 @@ If you want to learn more about the philosophy, history and usage of the main to
 
 - reference installations of all current versions of iLCSoft for *SL6* in *afs* and *cvmfs*, e.g.:
 
-### iLCSoft v02-00-01 reference installations
+### iLCSoft v02-01 reference installations
 
-	/afs/desy.de/project/ilcsoft/sw/x86_64_gcc49_sl6/v02-00-01
-	/cvmfs/ilc.desy.de/sw/x86_64_gcc49_sl6/v02-00-01
+	/afs/desy.de/project/ilcsoft/sw/x86_64_gcc82_sl6/v02-01
+	/afs/desy.de/project/ilcsoft/sw/x86_64_gcc82_centos7/v02-01
+	/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01
 	
 	
-### configuration files for ILD are in ILDConfig - for v02-00-01:
+### configuration files for ILD are in ILDConfig - for v02-01:
 	
-	/afs/desy.de/project/ilcsoft/sw/ILDConfig/v02-00-01
-	/cvmfs/ilc.desy.de/sw/ILDConfig/v02-00-01
+	/afs/desy.de/project/ilcsoft/sw/ILDConfig/v02-01
+	/cvmfs/ilc.desy.de/sw/ILDConfig/v02-01
 
 ### or download from GitHub:
 
-	git clone https://github.com/iLCSoft/ILDConfig.git -b v02-00-01
+	git clone https://github.com/iLCSoft/ILDConfig.git -b v02-01
 
 
 # First Steps
@@ -212,7 +213,10 @@ If you want to learn more about the philosophy, history and usage of the main to
 
 - a given iLCSoft release is initialized simply via running the *init script*:
 
-		. /afs/desy.de/project/ilcsoft/sw/x86_64_gcc49_sl6/v02-00-01/init_ilcsoft.sh
+		. /afs/desy.de/project/ilcsoft/sw/x86_64_gcc82_sl6/v02-01/init_ilcsoft.sh
+- or:
+		. /cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01/init_ilcsoft.sh
+		
 		
 - now you can call all iLCSoft binaries (*from this release !*) directly on the command line, e.g.
 ```
