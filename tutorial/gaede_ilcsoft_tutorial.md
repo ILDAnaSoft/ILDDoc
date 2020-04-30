@@ -444,7 +444,9 @@ Marlin MarlinStdReco.xml \
 
 - then we can view the reconstructed events via Marlin:
 ```
-		Marlin MarlinStdRecoViewer.xml
+		Marlin MarlinStdRecoViewer.xml \
+        --global.GearXMLFile=Gear/gear_ILD_l5_o1_v02.xml \
+        --global.LCIOInputFiles=bbudsc_3evt_REC.slcio
 ```
 
 - or we can start both, glced and Marlin in one go:
@@ -498,12 +500,12 @@ Marlin MarlinStdReco.xml \
 - creates: StandardReco_LCTuple.root 
 	  which you can analyze with ROOT in the *usual way*
 	
-- run a simple example macro \footnote{example draw\_etot.C is currently broken}:
+- run a simple example macro:
   
 ```  
     cd RootMacros
     root -l
-		root [0] .x ./draw_simhits.C("bbudsc_3evt_REC_lctuple.root")
+		root [0] .x ./draw_simhits.C("../StandardReco_LCTuple.root")
 ```
 
 - see next slide for basic introduction to LCTuple
@@ -577,6 +579,10 @@ Marlin MarlinStdReco.xml \
 	- try to use the lcio::RelationNavigator to plot
 	  some *truth* vs. *reconstructed* quantities
 	- repeat steps on previous slide to build and eventually run your processor
+      (Note that you will have to enable Marlin to use the AIDA package to use
+      the `AIDProcessor::histogramFactory`. You can do this by changing the
+      `CMakeLists.txt` to look for the AIDA package by uncommenting the lines
+      after `FIND_PACKAGE( AIDA )`)
 
 
 # Questions ?
