@@ -19,9 +19,14 @@ In addition, write "ILD" or "ILD preliminary" on your plots as appropriate.
 
 # ILD MC production known issues
 
-Among the list of Github issues of this package, you will see the label [ILDProdIssues](https://github.com/ILDAnaSoft/ILDDoc/labels). All of this issues reference known problems in the MC samples centrally produced with the new version of iLCSoft (v02-00-XX). They can be found here:
+Among the list of Github issues of this package, you will see the label [ILDProdIssues](https://github.com/ILDAnaSoft/ILDDoc/labels). All of this issues reference known problems in the MC samples centrally produced with the new version of iLCSoft (>= v02-XX-XX). They can be found here:
 
-[https://github.com/ILDAnaSoft/ILDDoc/issues?utf8=%E2%9C%93&q=label%3AILDProdIssues](https://github.com/ILDAnaSoft/ILDDoc/issues?utf8=%E2%9C%93&q=label%3AILDProdIssues)
+500 GeV (IDR) production issues: 
+- [https://github.com/ILDAnaSoft/ILDDoc/issues?q=is\%3Aissue+label\%3A500GeV+label\%3AILDProdIssues](https://github.com/ILDAnaSoft/ILDDoc/issues?q=is\%3Aissue+label\%3A500GeV+label\%3AILDProdIssues)
+
+250 GeV production issues: 
+- [https://github.com/ILDAnaSoft/ILDDoc/issues?q=is\%3Aissue+label\%3A250GeV+label\%3AILDProdIssues](https://github.com/ILDAnaSoft/ILDDoc/issues?q=is\%3Aissue+label\%3A250GeV+label\%3AILDProdIssues)
+
 
 This issues also provide, when possible, solutions or work-around to treat these problems in the produced samples.
 If you find any additional problems in these samples, please open a new issue here:
