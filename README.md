@@ -1,6 +1,6 @@
 # Getting an ILD repository
 
-If your are part of the ILD collaboration and doing physics analysis, this the place to end up. You can contact us by email in order to get a public repository in the ILDAnaSoft collaboration and we will create it for your.
+If you are part of the ILD collaboration and doing physics analysis, this the place to end up. You can contact us by email in order to get a public repository in the ILDAnaSoft collaboration and we will create it for you.
 
 In order to be efficient, we would need the following information in the email:
 
